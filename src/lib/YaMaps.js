@@ -1,11 +1,11 @@
 class YaMaps {
-	constructor({container, addRoute}) {
-		this.yamaps = window.ymaps;
-		this.addRoute = addRoute;
-		this.container = container;
+  constructor({container, addRoute}) {
+    this.yamaps = window.ymaps;
+    this.addRoute = addRoute;
+    this.container = container;
     this.placeMark = null;
     this.route = null;
-	}
+  }
 
   init() {
     this.maps = new this.yamaps.Map(this.container, {
@@ -17,7 +17,7 @@ class YaMaps {
     this.suggestView = new this.yamaps.SuggestView('suggest', {offset: [-1, 3]});
   }
 
-	buildRoute(routes) {
+  buildRoute(routes) {
     this.yamaps.route(routes, {
       mapStateAutoApply: true
     }).then(
@@ -36,44 +36,44 @@ class YaMaps {
         console.log("Возникла ошибка: " + error.message);
       }
     )
-	}
+  }
 
-	removeRoute() {
-	  if (this.route) {
+  removeRoute() {
+    if (this.route) {
       this.maps.geoObjects.remove(this.route);
       this.route = null;
     }
   }
 
   removePlaceMark() {
-	  if (this.placeMark) {
+    if (this.placeMark) {
       this.maps.geoObjects.remove(this.placeMark);
       this.placeMark = null;
     }
-	}
+  }
 
-	addPlacemark(route) {
-	  this.removePlaceMark();
+  addPlacemark(route) {
+    this.removePlaceMark();
     this.removeRoute();
 
     this.placeMark = new this.yamaps.Placemark(route.coords,
       {iconContent: '1', balloonContent: route.name});
     this.maps.setCenter(route.coords);
-		this.maps.geoObjects.add(this.placeMark);
-	}
+    this.maps.geoObjects.add(this.placeMark);
+  }
 
-	getCoords(value) {
+  getCoords(value) {
     const geocoder = this.yamaps.geocode(value);
     geocoder.then(
       (res) => {
-      	const coords = res.geoObjects.get(0).geometry.getCoordinates();
-      	this.addRoute({name: value, coords: coords});
-			},
+        const coords = res.geoObjects.get(0).geometry.getCoordinates();
+        this.addRoute({name: value, coords: coords});
+      },
       (err) => {
         console.log(err);
       }
     )
-	}
+  }
 
 }
 
