@@ -1,0 +1,11 @@
+.star-rating {
+  display: flex;
+}
+
+.star-rating__text {
+  margin-right: .2rem;
+
+  @media screen and (max-width: 480px) {
+    font-size: 1.3rem;
+  }
+}

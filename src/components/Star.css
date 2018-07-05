@@ -1,0 +1,11 @@
+.star {
+  display: flex;
+  align-items: center;
+  margin-left: .3rem; }
+
+.star__icon {
+  cursor: pointer;
+  margin-top: .2rem; }
+  @media screen and (max-width: 480px) {
+    .star__icon {
+      font-size: 1.3rem; } }

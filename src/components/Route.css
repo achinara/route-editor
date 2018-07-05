@@ -1,0 +1,39 @@
+.route {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: .5rem; }
+
+.route__text {
+  flex-grow: 1;
+  padding: .5rem 9px;
+  background: #ededed;
+  border-right: 2px solid rgba(0, 0, 0, 0.5);
+  border-radius: 3px 0 0 3px; }
+  @media screen and (max-width: 480px) {
+    .route__text {
+      font-size: 1.3rem; } }
+
+.route__button {
+  padding: 0 1rem;
+  color: #3F4141;
+  background: #ededed;
+  border: 0;
+  border-radius: 0 3px 3px 0;
+  cursor: pointer; }
+  @media screen and (max-width: 480px) {
+    .route__button {
+      min-width: 4rem;
+      padding: 0; } }
+  .route__button:focus {
+    outline: none; }
+  .route__button:hover .route__icon {
+    transform: rotate(87deg); }
+  .route__button:active {
+    background: #e0e0e0; }
+
+.route__icon {
+  font-size: 1rem;
+  transition: transform .2s; }
+  @media screen and (max-width: 480px) {
+    .route__icon {
+      font-size: 1.2rem; } }
